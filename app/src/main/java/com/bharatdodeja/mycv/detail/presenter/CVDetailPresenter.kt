@@ -1,10 +1,10 @@
 package com.bharatdodeja.mycv.detail.presenter
 
 import com.bharatdodeja.mycv.detail.CVDetailContract
-import com.bharatdodeja.mycv.detail.framework.BasePresenter
-import com.bharatdodeja.mycv.detail.framework.NetworkUtils
-import com.bharatdodeja.mycv.detail.framework.rx.DisposableManager
 import com.bharatdodeja.mycv.detail.model.repository.CVRepository
+import com.bharatdodeja.mycv.framework.BasePresenter
+import com.bharatdodeja.mycv.framework.rx.DisposableManager
+import com.bharatdodeja.mycv.framework.util.NetworkUtils
 
 /**
  * Presenter to communicate with CV model layer and fetch data
@@ -17,6 +17,12 @@ class CVDetailPresenter(
     //hardcoded user id, later it can be user input to make it dynamic
     private val userId: String = "thomasdavis"
 
+    override fun onCreate() {
+        super.onCreate()
+
+        getCVDetail()
+    }
+
     override fun getCVDetail() {
         if (networkUtils.isConnected()) {
             addDisposable(
@@ -28,9 +34,5 @@ class CVDetailPresenter(
         } else {
           view.showNoNetworkError()
         }
-    }
-
-    override fun refreshCVDetail() {
-        getCVDetail()
     }
 }

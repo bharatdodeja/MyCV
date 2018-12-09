@@ -16,6 +16,5 @@ interface CVDetailContract {
 
     interface Presenter {
         fun getCVDetail()
-        fun refreshCVDetail()
     }
 }

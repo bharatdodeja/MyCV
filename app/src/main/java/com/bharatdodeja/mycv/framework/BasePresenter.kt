@@ -1,11 +1,11 @@
-package com.bharatdodeja.mycv.detail.framework
+package com.bharatdodeja.mycv.framework
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.OnLifecycleEvent
 import android.support.annotation.CallSuper
-import com.bharatdodeja.mycv.detail.framework.rx.DisposableManager
+import com.bharatdodeja.mycv.framework.rx.DisposableManager
 import io.reactivex.disposables.Disposable
 
 /**

@@ -1,4 +1,4 @@
-package com.bharatdodeja.mycv.detail.framework
+package com.bharatdodeja.mycv.framework.util
 
 import android.content.Context
 import android.net.ConnectivityManager

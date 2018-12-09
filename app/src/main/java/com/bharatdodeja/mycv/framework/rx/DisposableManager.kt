@@ -1,4 +1,4 @@
-package com.bharatdodeja.mycv.detail.framework.rx
+package com.bharatdodeja.mycv.framework.rx
 
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

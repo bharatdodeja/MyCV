@@ -7,8 +7,8 @@ import io.reactivex.Flowable
 /**
  * Repository pattern to fetch CV data from data source
  */
-class CVRepository(private val dataSource: CVDataSource) : CVDataSource {
+class CVRepository(private val remoteDataSource: CVDataSource) : CVDataSource {
     override fun getCV(userId: String): Flowable<CVDataModel> {
-        return dataSource.getCV(userId)
+        return remoteDataSource.getCV(userId)
     }
 }

@@ -8,6 +8,8 @@ import com.bharatdodeja.mycv.detail.model.data.CVDataModel
 
 class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
 
+    lateinit var presenter: CVDetailContract.Presenter
+
     override fun showNoNetworkError() {
         //TODO
     }
