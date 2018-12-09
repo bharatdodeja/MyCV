@@ -1,6 +1,5 @@
 package com.bharatdodeja.mycv.detail.di
 
-import android.content.Context
 import com.bharatdodeja.mycv.detail.CVDetailContract
 import com.bharatdodeja.mycv.detail.model.api.CVApiService
 import com.bharatdodeja.mycv.detail.model.repository.CVRepository
@@ -8,8 +7,8 @@ import com.bharatdodeja.mycv.detail.model.repository.datasource.CVRemoteDataSour
 import com.bharatdodeja.mycv.detail.presenter.CVDetailPresenter
 import com.bharatdodeja.mycv.detail.view.CVDetailActivity
 import com.bharatdodeja.mycv.framework.di.ActivityScoped
-import com.bharatdodeja.mycv.framework.di.ApplicationContext
 import com.bharatdodeja.mycv.framework.rx.DisposableManager
+import com.bharatdodeja.mycv.framework.rx.SchedulerProvider
 import com.bharatdodeja.mycv.framework.util.NetworkUtils
 import dagger.Module
 import dagger.Provides
@@ -31,11 +30,18 @@ class CVDetailModule {
 
     @ActivityScoped
     @Provides
+    fun schedulerProvider(): SchedulerProvider {
+        return SchedulerProvider.getInstance()
+    }
+
+    @ActivityScoped
+    @Provides
     fun presenter(
         view: CVDetailContract.View, repository: CVRepository,
-        disposableManager: DisposableManager, networkUtils: NetworkUtils
+        disposableManager: DisposableManager, networkUtils: NetworkUtils,
+        schedulerProvider: SchedulerProvider
     ): CVDetailContract.Presenter {
-        return CVDetailPresenter(view, repository, disposableManager, networkUtils)
+        return CVDetailPresenter(view, repository, disposableManager, networkUtils, schedulerProvider)
     }
 
     @ActivityScoped
