@@ -1,4 +1,5 @@
 # MyCV
+<img src="https://travis-ci.org/bharatdodeja/MyCV.svg?branch=master"/>
 A native Android app written entirely in Kotlin to showcase a Curriculum Vitae :page_facing_up:
 
 ## Architecture Diagram
