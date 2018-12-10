@@ -6,10 +6,13 @@ import com.bharatdodeja.mycv.R
 import com.bharatdodeja.mycv.detail.CVDetailContract
 import com.bharatdodeja.mycv.detail.di.Injection
 import com.bharatdodeja.mycv.detail.model.data.CVDataModel
+import com.bharatdodeja.mycv.framework.util.action
+import com.bharatdodeja.mycv.framework.util.snackBar
+import kotlinx.android.synthetic.main.activity_cv_detail.*
 
 class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
 
-    lateinit var presenter: CVDetailContract.Presenter
+    private lateinit var presenter: CVDetailContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,27 +20,32 @@ class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
 
         presenter = Injection.providePresenter(this)
         presenter.getCVDetail()
+
+        swipeRefreshLayout.setOnRefreshListener { presenter.getCVDetail() }
     }
 
     override fun showCVDetail(cvDataModel: CVDataModel) {
-        println(cvDataModel.toString())
-        //TODO
+        //TODO Show CV detail in proper format on UI
+        txtCVDetail.text = cvDataModel.toString()
     }
 
     override fun showLoading() {
-        //TODO
+        swipeRefreshLayout.isRefreshing = true
+        txtCVDetail.text = ""
     }
 
     override fun hideLoading() {
-        //TODO
+        swipeRefreshLayout.isRefreshing = false
     }
 
     override fun showError(error: Throwable) {
-        println(error.localizedMessage)
-        //TODO
+        txtCVDetail.text = error.toString()
+        hideLoading()
     }
 
     override fun showNoNetworkError() {
-        //TODO
+        txtCVDetail.snackBar(R.string.network_error) {
+            action("Retry") { presenter.getCVDetail() }
+        }
     }
 }

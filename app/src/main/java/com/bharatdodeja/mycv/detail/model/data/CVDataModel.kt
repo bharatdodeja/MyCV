@@ -1,5 +1,6 @@
 package com.bharatdodeja.mycv.detail.model.data
 
+import com.bharatdodeja.mycv.framework.util.GenericModel
 import com.google.gson.annotations.SerializedName
 
 
@@ -14,7 +15,7 @@ data class CVDataModel(
     val skills: List<Skill>,
     @SerializedName("work")
     val work: List<Work>
-)
+) : GenericModel()
 
 data class Education(
     @SerializedName("area")
@@ -27,14 +28,14 @@ data class Education(
     val startDate: String,
     @SerializedName("studyType")
     val studyType: String
-)
+) : GenericModel()
 
 data class Skill(
     @SerializedName("keywords")
     val keywords: List<String>,
     @SerializedName("name")
     val name: String
-)
+) : GenericModel()
 
 data class Basics(
     @SerializedName("email")
@@ -51,14 +52,14 @@ data class Basics(
     val summary: String,
     @SerializedName("website")
     val website: String
-)
+) : GenericModel()
 
 data class Location(
     @SerializedName("city")
     val city: String,
     @SerializedName("countryCode")
     val countryCode: String
-)
+) : GenericModel()
 
 data class Profile(
     @SerializedName("network")
@@ -67,14 +68,14 @@ data class Profile(
     val url: String,
     @SerializedName("username")
     val username: String
-)
+) : GenericModel()
 
 data class Reference(
     @SerializedName("name")
     val name: String,
     @SerializedName("reference")
     val reference: String
-)
+) : GenericModel()
 
 data class Work(
     @SerializedName("company")
@@ -91,4 +92,4 @@ data class Work(
     val summary: String,
     @SerializedName("website")
     val website: String
-)
+) : GenericModel()

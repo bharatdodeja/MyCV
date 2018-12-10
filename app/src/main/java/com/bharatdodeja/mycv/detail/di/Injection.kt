@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit
 object Injection {
     fun providePresenter(activity: CVDetailActivity): CVDetailContract.Presenter {
 
-        val timeOut: Long = 30
+        val timeOut: Long = 10
 
         val gson = GsonBuilder().setLenient().create()
         val converterFactory = GsonConverterFactory.create(gson)

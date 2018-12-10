@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyCV</string>
+  <string name="network_error">Please check network connection</string>
 </resources>
