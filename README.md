@@ -7,7 +7,7 @@ A native Android app writtern entirely in Kotlin to showcase a Curriculum Vitae 
 3. Extensibility
 
 ## Architecture Diagram
-<img src="https://github.com/bharatdodeja/MyCV/blob/master/MyCV_Architecture_Diagram.png" alt="Architecture Diagram"/>
+<img src="https://github.com/bharatdodeja/MyCV/blob/master/MyCV%20Architecture%20Diagram.jpg" alt="Architecture Diagram"/>
 
 ## Why Reactive Extensions (Rx)?
 Reactive Extensions makes asynchronous programming easy with observable streams especially event driven programs like Android app.
