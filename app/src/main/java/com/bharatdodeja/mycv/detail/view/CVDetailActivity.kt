@@ -48,7 +48,7 @@ class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
 
     override fun showNoNetworkError() {
         txtCVDetail.snackBar(R.string.network_error) {
-            action("Retry") { presenter.getCVDetail(userId) }
+            action(R.string.retry) { presenter.getCVDetail(userId) }
         }
     }
 }
