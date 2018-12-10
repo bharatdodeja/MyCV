@@ -70,7 +70,7 @@ class CVDetailPresenterTest {
     @Test
     fun ifNetworkConnected_doNotShowNetworkError() {
         //Given there is no network connection in device
-        whenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
+        givenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
 
         //When presenter is asked to get CV detail
         presenter.getCVDetail(userId)
@@ -84,7 +84,7 @@ class CVDetailPresenterTest {
 
         //Given there is active network connection in device
         //and repository returns successful data
-        whenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
+        givenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
 
         //When presenter is asked to get CV detail
         presenter.getCVDetail(userId)
@@ -98,7 +98,7 @@ class CVDetailPresenterTest {
 
         //Given there is active network connection in device
         //and repository returns successful data
-        whenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
+        givenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
 
         //When presenter is asked to get CV detail
         presenter.getCVDetail(userId)
@@ -114,7 +114,7 @@ class CVDetailPresenterTest {
     fun getCVDetailCalled_andError_showErrorIntoView() {
         //Given there is active network connection in device
         //and repository gives error
-        whenActiveNetworkAndRepositoryReturnsError(userId, error)
+        givenActiveNetworkAndRepositoryReturnsError(userId, error)
 
         //When presenter is asked to get CV detail
         presenter.getCVDetail(userId)
@@ -127,7 +127,7 @@ class CVDetailPresenterTest {
     fun getCVDetail_progressIndicatorsShownAndHidden() {
         // Given there is active network connection in device
         // and repository returns successful data
-        whenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
+        givenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
 
         //When presenter is asked to get CV detail
         presenter.getCVDetail(userId)
@@ -143,7 +143,7 @@ class CVDetailPresenterTest {
     fun getCVDetail_AndThereIsError_progressIndicatorsShownAndHidden() {
         //Given there is active network connection in device
         //and repository gives error
-        whenActiveNetworkAndRepositoryReturnsError(userId, error)
+        givenActiveNetworkAndRepositoryReturnsError(userId, error)
 
         //When presenter is asked to get CV detail
         presenter.getCVDetail(userId)
@@ -155,12 +155,12 @@ class CVDetailPresenterTest {
         verify(view).hideLoading()
     }
 
-    private fun whenActiveNetworkAndRepositoryReturnsSuccess(userId: String, cvDataModel: CVDataModel) {
+    private fun givenActiveNetworkAndRepositoryReturnsSuccess(userId: String, cvDataModel: CVDataModel) {
         `when`(networkUtils.isConnected()).then { true }
         `when`(repository.getCV(userId)).thenReturn(Flowable.just(cvDataModel))
     }
 
-    private fun whenActiveNetworkAndRepositoryReturnsError(userId: String, error: Throwable) {
+    private fun givenActiveNetworkAndRepositoryReturnsError(userId: String, error: Throwable) {
         `when`(networkUtils.isConnected()).then { true }
         `when`(repository.getCV(userId)).thenReturn(Flowable.error(error))
     }

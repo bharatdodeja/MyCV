@@ -1,7 +1,7 @@
-package com.bharatdodeja.mycv.detail.model.repository
+package com.bharatdodeja.mycv.detail.model.repository.datasource
 
+import com.bharatdodeja.mycv.detail.model.api.CVApiService
 import com.bharatdodeja.mycv.detail.model.data.CVDataModel
-import com.bharatdodeja.mycv.detail.model.repository.datasource.CVDataSource
 import com.bharatdodeja.mycv.framework.util.GenericModel
 import io.reactivex.Flowable
 import io.reactivex.subscribers.TestSubscriber
@@ -13,10 +13,10 @@ import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 
-class CVRepositoryTest {
+class CVRemoteDataSourceTest {
 
     @Mock
-    private lateinit var remoteDataSource: CVDataSource
+    private lateinit var cvApiService: CVApiService
 
     private val userId: String = "thomasdavis"
 
@@ -29,10 +29,11 @@ class CVRepositoryTest {
 
     private lateinit var mTestSubscriber: TestSubscriber<CVDataModel>
 
-    private lateinit var repository: CVRepository
+    private lateinit var remoteDataSource: CVRemoteDataSource
 
     @Before
     fun setUp() {
+
         // Mockito has a very convenient way to inject mocks by using the @Mock annotation. To
         // inject the mocks in the test the initMocks method needs to be called.
         MockitoAnnotations.initMocks(this)
@@ -40,7 +41,7 @@ class CVRepositoryTest {
         mTestSubscriber = TestSubscriber()
 
         //Initialise class under test
-        repository = CVRepository(remoteDataSource)
+        remoteDataSource = CVRemoteDataSource(cvApiService)
     }
 
     @After
@@ -49,46 +50,58 @@ class CVRepositoryTest {
     }
 
     @Test
-    fun getCV_dataSourceCallIsCaptured() {
-        // Given remote data source returns success
-        givenDataSourceReturnsSuccess(userId, cvDataModel)
+    fun getCV_apiServiceCallIsCaptured() {
+        // Given
+        givenApiServiceReturnsSuccess(userId, cvDataModel)
 
-        // When getCV call is subscribed to data source
-        repository.getCV(userId).subscribe(mTestSubscriber)
+        // When
+        remoteDataSource.getCV(userId)
 
-        // Then remote data source call is captured
-        verify(remoteDataSource).getCV(userId)
+        // Then
+        verify(cvApiService).getCV(userId)
     }
 
     @Test
-    fun getCV_andThereIsError_repositoryReturnsError() {
-        // Given remote data source returns success
-        givenDataSourceReturnsError(userId, error)
+    fun getCV_apiReturnsSuccess_resultIsSuccess() {
+        // Given
+        givenApiServiceReturnsSuccess(userId, cvDataModel)
 
-        // When getCV call is subscribed to data source
-        repository.getCV(userId).subscribe(mTestSubscriber)
+        // When
+        remoteDataSource.getCV(userId).subscribe(mTestSubscriber)
 
-        // Then observable emits error
+        // Then
+        mTestSubscriber.assertValue(cvDataModel)
+    }
+
+    @Test
+    fun getCV_apiReturnsError_resultIsError() {
+        // Given
+        givenApiServiceReturnsError(userId, error)
+
+        // When
+        remoteDataSource.getCV(userId).subscribe(mTestSubscriber)
+
+        // Then
         mTestSubscriber.assertError(error)
     }
 
     @Test
-    fun getCV_andThereIsSuccess_returnsExpectedResult() {
-        // Given remote data source returns success
-        givenDataSourceReturnsSuccess(userId, cvDataModel)
+    fun getCV_apiReturnsError_noValuesReturned() {
+        // Given
+        givenApiServiceReturnsError(userId, error)
 
-        // When getCV call is subscribed to data source
-        repository.getCV(userId).subscribe(mTestSubscriber)
+        // When
+        remoteDataSource.getCV(userId).subscribe(mTestSubscriber)
 
-        // Then observable emits success value
-        mTestSubscriber.assertValue(cvDataModel)
+        // Then
+        mTestSubscriber.assertNoValues()
     }
 
-    private fun givenDataSourceReturnsSuccess(userId: String, cvDataModel: CVDataModel) {
-        `when`(remoteDataSource.getCV(userId)).thenReturn(Flowable.just(cvDataModel))
+    private fun givenApiServiceReturnsSuccess(userId: String, cvDataModel: CVDataModel) {
+        `when`(cvApiService.getCV(userId)).thenReturn(Flowable.just(cvDataModel))
     }
 
-    private fun givenDataSourceReturnsError(userId: String, error: Throwable) {
-        `when`(remoteDataSource.getCV(userId)).thenReturn(Flowable.error(error))
+    private fun givenApiServiceReturnsError(userId: String, error: Throwable) {
+        `when`(cvApiService.getCV(userId)).thenReturn(Flowable.error(error))
     }
 }
