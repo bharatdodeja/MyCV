@@ -1,4 +1,5 @@
 # MyCV
+<img src="https://travis-ci.org/bharatdodeja/MyCV.svg?branch=master">
 A native Android app written entirely in Kotlin to showcase a Curriculum Vitae :page_facing_up:
 
 ## Why MVP?
@@ -43,7 +44,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 - [X] Unit test presenters and repositories using [AndroidJUnitRunner](https://developer.android.com/training/testing/junit-runner)
 - [X] Mocking using [Mockito 2](https://github.com/mockito/mockito)
 - [X] Use [JSON Resume](https://jsonresume.org) for showing JSON-based resumes
-- [ ] CI/CD using [CircleCI](https://circleci.com/)
+- [X] CI/CD using [Travis CI](https://travis-ci.com/)
 - [X] Add open source license
 - [X] Design architecture diagram for README
 
