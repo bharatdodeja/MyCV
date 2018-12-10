@@ -2,13 +2,13 @@
 <img src="https://travis-ci.org/bharatdodeja/MyCV.svg?branch=master">
 A native Android app written entirely in Kotlin to showcase a Curriculum Vitae :page_facing_up:
 
+## Architecture Diagram
+<img src="https://github.com/bharatdodeja/MyCV/blob/master/MyCV%20Architecture%20Diagram.jpg" alt="Architecture Diagram"/>
+
 ## Why MVP?
 1. Simplicity
 2. Testability
 3. Extensibility
-
-## Architecture Diagram
-<img src="https://github.com/bharatdodeja/MyCV/blob/master/MyCV%20Architecture%20Diagram.jpg" alt="Architecture Diagram"/>
 
 ## Why Reactive Extensions (Rx)?
 Reactive Extensions makes asynchronous programming easy with observable streams especially event driven programs like Android app.
