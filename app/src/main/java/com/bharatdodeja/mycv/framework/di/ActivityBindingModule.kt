@@ -1,9 +1,6 @@
 package com.bharatdodeja.mycv.framework.di
 
-import com.bharatdodeja.mycv.detail.di.CVDetailModule
-import com.bharatdodeja.mycv.detail.view.CVDetailActivity
 import dagger.Module
-import dagger.android.ContributesAndroidInjector
 
 /**
  * We want Dagger.Android to create a Sub component which has a parent Component of whichever module
@@ -15,8 +12,4 @@ import dagger.android.ContributesAndroidInjector
  * When Dagger Android annotation processor runs, it will create 4 sub components for us.
  */
 @Module
-abstract class ActivityBindingModule {
-    @ActivityScoped
-    @ContributesAndroidInjector(modules = [CVDetailModule::class])
-    internal abstract fun cvDetailActivity(): CVDetailActivity
-}
+abstract class ActivityBindingModule

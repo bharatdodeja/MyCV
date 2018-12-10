@@ -3,8 +3,8 @@ package com.bharatdodeja.mycv.detail.presenter
 import com.bharatdodeja.mycv.detail.CVDetailContract
 import com.bharatdodeja.mycv.detail.model.repository.CVRepository
 import com.bharatdodeja.mycv.framework.BasePresenter
+import com.bharatdodeja.mycv.framework.rx.BaseSchedulerProvider
 import com.bharatdodeja.mycv.framework.rx.DisposableManager
-import com.bharatdodeja.mycv.framework.rx.SchedulerProvider
 import com.bharatdodeja.mycv.framework.util.NetworkUtils
 
 /**
@@ -15,13 +15,10 @@ class CVDetailPresenter(
     private val repository: CVRepository,
     disposableManager: DisposableManager,
     private val networkUtils: NetworkUtils,
-    private val schedulerProvider: SchedulerProvider
+    private val schedulerProvider: BaseSchedulerProvider
 ) : BasePresenter<CVDetailContract.View>(view, disposableManager), CVDetailContract.Presenter {
 
-    //hardcoded user id, later it can be user input to make it dynamic
-    private val userId: String = "thomasdavis"
-
-    override fun getCVDetail() {
+    override fun getCVDetail(userId: String) {
         if (networkUtils.isConnected()) {
             addDisposable(
                 repository.getCV(userId)

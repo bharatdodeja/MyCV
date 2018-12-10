@@ -12,6 +12,9 @@ import kotlinx.android.synthetic.main.activity_cv_detail.*
 
 class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
 
+    //hardcoded user id, later it can be user input to make it dynamic
+    private val userId: String = "thomasdavis"
+
     private lateinit var presenter: CVDetailContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +22,9 @@ class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
         setContentView(R.layout.activity_cv_detail)
 
         presenter = Injection.providePresenter(this)
-        presenter.getCVDetail()
+        presenter.getCVDetail(userId)
 
-        swipeRefreshLayout.setOnRefreshListener { presenter.getCVDetail() }
+        swipeRefreshLayout.setOnRefreshListener { presenter.getCVDetail(userId) }
     }
 
     override fun showCVDetail(cvDataModel: CVDataModel) {
@@ -45,7 +48,7 @@ class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
 
     override fun showNoNetworkError() {
         txtCVDetail.snackBar(R.string.network_error) {
-            action("Retry") { presenter.getCVDetail() }
+            action("Retry") { presenter.getCVDetail(userId) }
         }
     }
 }

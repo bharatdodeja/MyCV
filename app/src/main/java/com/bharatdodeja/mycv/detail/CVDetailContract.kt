@@ -15,6 +15,6 @@ interface CVDetailContract {
     }
 
     interface Presenter {
-        fun getCVDetail()
+        fun getCVDetail(userId: String)
     }
 }
