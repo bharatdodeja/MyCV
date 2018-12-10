@@ -32,7 +32,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 - [ ] UI Tests using [Espresso](https://developer.android.com/training/testing/espresso/) and [Robot pattern](https://gist.github.com/bharatdodeja/ac001b6a24028bde56943ee40cab7dbd)
 - [ ] Capture UI Test [Screenshots](https://developer.android.com/reference/android/support/test/runner/screenshot/Screenshot) using [Android Testing Support Library](https://android.github.io/android-test/)
 - [ ] Stubbed data for UI tests using [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver)
-- [ ] Unit test presenters and repositories using [AndroidJUnitRunner](https://developer.android.com/training/testing/junit-runner)
+- [X] Unit test presenters and repositories using [AndroidJUnitRunner](https://developer.android.com/training/testing/junit-runner)
 - [X] Mocking using [Mockito 2](https://github.com/mockito/mockito)
 - [X] Use [JSON Resume](https://jsonresume.org) for showing JSON-based resumes
 - [ ] CI/CD using [CircleCI](https://circleci.com/)
