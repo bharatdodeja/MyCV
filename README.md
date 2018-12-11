@@ -1,4 +1,7 @@
-# MyCV
+# MyCV 
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://travis-ci.org/bharatdodeja/MyCV)
+[![Code Coverage](https://img.shields.io/badge/codecov-100%25-brightgreen.svg)](https://codecov.io/gh/bharatdodeja/MyCV/)
+[![Kotlin version badge](https://img.shields.io/badge/kotlin-v1.3.11-blue.svg)](http://kotlinlang.org/)
 
 A native Android app written entirely in Kotlin to showcase a Curriculum Vitae :page_facing_up:
 
