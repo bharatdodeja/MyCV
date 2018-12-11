@@ -26,7 +26,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 
 ### Mocking
 - Mocking of final classes and methods of Kotlin using mockito extension [mock-maker-inline](https://github.com/mockito/mockito/wiki/What%27s-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods)
-- Fake data source implementation for easy UI testing using stubbed data without MockWebService
+- Fake data source implementation for easy UI testing using stubbed data without MockWebServer
 
 ### UI Tests (Espresso + Robot Pattern) 
 - [Espresso](https://developer.android.com/training/testing/espresso/) tests for testing UI using [Robot Pattern](https://gist.github.com/bharatdodeja/ac001b6a24028bde56943ee40cab7dbd) and Kotlin DSL
