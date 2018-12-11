@@ -1,4 +1,5 @@
 # MyCV
+
 A native Android app written entirely in Kotlin to showcase a Curriculum Vitae :page_facing_up:
 
 ## Architecture Diagram
@@ -55,6 +56,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 - [ ] Replace [AndroidJUnitRunner](https://developer.android.com/training/testing/junit-runner) with [JUnit4 rules 
 with AndroidX Test](https://developer.android.com/training/testing/junit-rules)
 - [ ] Replace dependency injection framework with [Dagger 2](https://google.github.io/dagger/)
+- [ ] Replace Rx with Kotlin Coroutines
 - [ ] Install [Git hooks](https://www.atlassian.com/git/tutorials/git-hooks)
 - [ ] Write blog post explaining the architecture and tools used
 
