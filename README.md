@@ -48,7 +48,6 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 - [X] Design architecture diagram for README
 
 ### TODO v2.0
-- [ ] MVVM with LiveData, ViewModel and DataBinding
 - [ ] ORM to support offline using [Room](https://developer.android.com/topic/libraries/architecture/room)
 - [ ] Stubbed data for UI tests using [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver)
 - [ ] Replace Dagger with [Koin](https://insert-koin.io/) as dependency injection framework
