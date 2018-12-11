@@ -1,10 +1,10 @@
 package com.bharatdodeja.mycv.util;
 
 import android.content.Context;
-import android.support.test.espresso.FailureHandler;
-import android.support.test.espresso.NoMatchingViewException;
-import android.support.test.espresso.base.DefaultFailureHandler;
-import android.support.test.runner.screenshot.Screenshot;
+import androidx.test.espresso.FailureHandler;
+import androidx.test.espresso.NoMatchingViewException;
+import androidx.test.espresso.base.DefaultFailureHandler;
+import androidx.test.runner.screenshot.Screenshot;
 import android.view.View;
 
 import org.hamcrest.Matcher;

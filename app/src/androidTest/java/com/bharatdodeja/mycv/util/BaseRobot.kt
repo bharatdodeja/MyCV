@@ -1,6 +1,6 @@
 package com.bharatdodeja.mycv.util
 
-import android.support.test.runner.screenshot.Screenshot
+import androidx.test.runner.screenshot.Screenshot
 import android.util.Log
 import java.lang.Exception
 

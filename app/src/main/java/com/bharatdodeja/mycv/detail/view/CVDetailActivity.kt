@@ -1,7 +1,11 @@
 package com.bharatdodeja.mycv.detail.view
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.bold
+import androidx.core.text.buildSpannedString
+import androidx.core.text.color
+import androidx.core.text.scale
 import com.bharatdodeja.mycv.R
 import com.bharatdodeja.mycv.detail.CVDetailContract
 import com.bharatdodeja.mycv.detail.di.Injection
@@ -28,8 +32,145 @@ class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
     }
 
     override fun showCVDetail(cvDataModel: CVDataModel) {
-        //TODO Show CV detail in proper format on UI
-        txtCVDetail.text = cvDataModel.toString()
+        //Show CV detail in proper format on UI
+
+        val user = cvDataModel.basics
+
+        val name = user.name
+        val nameParts = name.split(" ")
+        val firstName = nameParts[0]
+        val lastName = nameParts[1]
+
+        txtCVDetail.text = buildSpannedString {
+
+            color(getColor(R.color.black)) {
+                scale(1.75f) {
+                    bold {
+                        append(firstName)
+                    }
+                    append(" $lastName")
+                }
+            }
+
+            scale(1.25f) {
+                append("\n")
+                append(user.label)
+            }
+            append("\n\n\n")
+            bold {
+                append("email")
+            }
+            append("\n")
+            append(user.email)
+            append("\n\n")
+            bold {
+                append("website")
+            }
+            append("\n")
+            append(user.website)
+
+            user.profiles.forEach {
+                append("\n\n")
+                bold {
+                    append(it.network)
+                }
+                append("\n")
+                append(it.url)
+            }
+
+            append("\n\n\n")
+            bold {
+                color(getColor(R.color.black)) {
+                    append("Summary".toUpperCase())
+                }
+            }
+            append("\n\n")
+            append(user.summary)
+
+
+            //Skill
+            append("\n\n\n")
+            scale(1.25f) {
+                bold {
+                    color(getColor(R.color.blue)) {
+                        append("Skills".toUpperCase())
+                    }
+                }
+            }
+            cvDataModel.skills.forEach { skill ->
+                append("\n\n")
+
+                color(getColor(R.color.black)) {
+                    bold { append(skill.name) }
+                }
+                skill.keywords.forEach { name ->
+                    append("\n")
+                    append("- $name")
+                }
+            }
+
+            append("\n\n\n")
+            scale(1.25f) {
+                bold {
+                    color(getColor(R.color.blue)) {
+                        append("Work".toUpperCase())
+                    }
+                }
+            }
+            cvDataModel.work.forEach { work ->
+                append("\n\n")
+                color(getColor(R.color.black)) {
+                    bold { append(work.position) }
+                }
+                append("\n")
+                bold { append(work.company) }
+                append("\n")
+                append(work.website)
+                if (work.startDate.isNullOrEmpty().not() && work.endDate.isNullOrEmpty().not()) {
+                    append("\n")
+                    append("${work.startDate} to ${work.endDate}")
+                }
+                append("\n\n")
+                append(work.summary)
+
+                if (work.highlights.isNullOrEmpty().not()) {
+                    append("\n\n")
+                    bold {
+                        append("Highlights")
+                    }
+
+                    work.highlights.forEach {
+                        append("\n")
+                        append("- $it")
+                    }
+                }
+            }
+
+            append("\n\n\n")
+            scale(1.25f) {
+                bold {
+                    color(getColor(R.color.blue)) {
+                        append("Education".toUpperCase())
+                    }
+                }
+            }
+            cvDataModel.education.forEach { education ->
+                append("\n\n")
+                color(getColor(R.color.black)) {
+                    bold { append(education.institution) }
+                }
+                append("\n")
+                scale(.75f) {
+                    append("${education.startDate} to ${education.endDate}")
+                }
+                append("\n")
+                color(getColor(R.color.black)) {
+                    append(education.area)
+                }
+                append("\n")
+                append(education.studyType)
+            }
+        }
     }
 
     override fun showLoading() {
@@ -42,8 +183,10 @@ class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
     }
 
     override fun showError(error: Throwable) {
-        txtCVDetail.text = error.toString()
         hideLoading()
+        txtCVDetail.snackBar(error.toString()) {
+            action(R.string.retry) { presenter.getCVDetail(userId) }
+        }
     }
 
     override fun showNoNetworkError() {

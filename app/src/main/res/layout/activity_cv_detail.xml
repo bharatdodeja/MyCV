@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/swipeRefreshLayout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".detail.view.CVDetailActivity">
+
+  <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".detail.view.CVDetailActivity">
+    android:layout_height="match_parent">
 
-  <android.support.v4.widget.SwipeRefreshLayout
-      android:id="@+id/swipeRefreshLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent">
+      android:layout_height="match_parent"
+      android:padding="@dimen/margin_medium">
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
       <TextView
-          android:id="@+id/txtCVDetail"
-          android:paddingStart="@dimen/margin_medium"
-          android:paddingEnd="@dimen/margin_medium"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:gravity="center"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintLeft_toLeftOf="parent"
-          app:layout_constraintRight_toRightOf="parent"
-          app:layout_constraintTop_toTopOf="parent"/>
+        android:id="@+id/txtCVDetail"
+        tools:text="John Doe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/name_size"
+        android:autoLink="all"
+        android:linksClickable="true"
+        android:textColorLink="@color/blue"
+      />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+  </androidx.core.widget.NestedScrollView>
 
-  </android.support.v4.widget.SwipeRefreshLayout>
-
-</android.support.constraint.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
