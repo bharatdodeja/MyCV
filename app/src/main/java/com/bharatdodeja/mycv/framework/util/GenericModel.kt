@@ -25,16 +25,14 @@ abstract class GenericModel {
 
     companion object {
 
-        fun <T> newInstance(rawString: String, type: Class<T>): T? {
+        fun <T> newInstance(rawString: String, type: Class<T>): T {
             val gson = Gson()
 
             return try {
                 gson.fromJson(rawString, type)
             } catch (ex: Exception) {
-                ex.printStackTrace()
-                null
+                gson.fromJson("{}", type)
             }
-
         }
     }
 

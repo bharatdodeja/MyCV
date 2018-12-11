@@ -4,6 +4,7 @@ import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions
 import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
 import com.bharatdodeja.mycv.R
 import com.bharatdodeja.mycv.detail.model.data.CVDataModel
@@ -13,7 +14,7 @@ import com.bharatdodeja.mycv.util.BaseRobot
  * Robot class for [CVDetailActivity], separating HOW from WHAT of testing
  * by following robot pattern as test architecture.
  */
-class CVDetailRobot : BaseRobot() {
+class CVDetailRobot(private val activity: CVDetailActivity?) : BaseRobot() {
 
     infix fun pullToRefresh(func: Result.() -> Unit): Result {
         onView(withId(R.id.swipeRefreshLayout))
@@ -21,12 +22,24 @@ class CVDetailRobot : BaseRobot() {
         return Result().apply { func() }
     }
 
+    infix fun showNoNetworkError(func: Result.() -> Unit): Result {
+        activity?.showNoNetworkError()
+        return Result().apply { func() }
+    }
+
+    infix fun showNoNetworkErrorAndRetry(func: Result.() -> Unit): Result {
+        activity?.showNoNetworkError()
+        onView(withText(R.string.retry))
+            .perform(ViewActions.click())
+        return Result().apply { func() }
+    }
+
     class Result : BaseRobot() {
         fun isNetworkErrorShownWithRetry() {
             onView(withText(R.string.network_error))
-                .check(matches(isDisplayed()))
+                .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
             onView(withText(R.string.retry))
-                .check(matches(isDisplayed()))
+                .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
         }
 
         fun isCVDetailShown(cvDataModel: CVDataModel) {
@@ -50,5 +63,14 @@ fun cvDetailScreen(func: CVDetailRobot.() -> Unit): CVDetailRobot {
     onView(withId(R.id.txtCVDetail))
         .check(matches(isDisplayed()))
 
-    return CVDetailRobot().apply { func() }
+    return CVDetailRobot(null).apply { func() }
+}
+
+fun cvDetailScreen(activity: CVDetailActivity?, func: CVDetailRobot.() -> Unit): CVDetailRobot {
+
+    //assert expected views are displayed
+    onView(withId(R.id.txtCVDetail))
+        .check(matches(isDisplayed()))
+
+    return CVDetailRobot(activity).apply { func() }
 }

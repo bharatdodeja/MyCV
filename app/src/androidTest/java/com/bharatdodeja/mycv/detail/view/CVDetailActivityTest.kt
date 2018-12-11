@@ -21,18 +21,6 @@ class CVDetailActivityTest : CVUITestDoubles() {
     var activityTestRule = ActivityTestRule(CVDetailActivity::class.java)
 
     @Test
-    fun whenThereIsNoActiveNetwork_showNetworkError() {
-        // This will work only when device is not connected to internet
-        cvDetailScreen {
-
-        } pullToRefresh {
-            // uncomment below statement after disabling network in device to make test pass
-            //isNetworkErrorShownWithRetry()
-            screenshot("NetworkErrorMsgWithError")
-        }
-    }
-
-    @Test
     fun getCV_showsCVDetail() {
         cvDetailScreen {
             //no user input required
@@ -49,6 +37,25 @@ class CVDetailActivityTest : CVUITestDoubles() {
         } pullToRefresh {
             isProgressShown()
             screenshot("LoadingIndicator")
+        }
+    }
+
+    @Test
+    fun showNoNetworkError_showsSnackBarWithErrorMessageAndRetry() {
+        cvDetailScreen (activityTestRule.activity) {
+            // no user input required
+        } showNoNetworkError {
+            isNetworkErrorShownWithRetry()
+            screenshot("NetworkErrorMsgWithError")
+        }
+    }
+
+    @Test
+    fun showNoNetworkError_retry_showsLoadingIndicator() {
+        cvDetailScreen (activityTestRule.activity) {
+            //no user input required
+        } showNoNetworkErrorAndRetry {
+            isProgressShown()
         }
     }
 }
