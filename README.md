@@ -1,7 +1,6 @@
 # MyCV 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://travis-ci.org/bharatdodeja/MyCV)
 [![Code Coverage](https://img.shields.io/badge/codecov-100%25-brightgreen.svg)](https://codecov.io/gh/bharatdodeja/MyCV/)
-[![Kotlin version badge](https://img.shields.io/badge/kotlin-v1.3.11-blue.svg)](http://kotlinlang.org/)
 
 A native Android app written entirely in Kotlin to showcase a Curriculum Vitae :page_facing_up:
 
@@ -27,6 +26,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 
 ### Mocking
 - Mocking of final classes and methods of Kotlin using mockito extension [mock-maker-inline](https://github.com/mockito/mockito/wiki/What%27s-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods)
+- Fake data source implementation for easy UI testing using stubbed data without MockWebService
 
 ### UI Tests (Espresso + Robot Pattern) 
 - [Espresso](https://developer.android.com/training/testing/espresso/) tests for testing UI using [Robot Pattern](https://gist.github.com/bharatdodeja/ac001b6a24028bde56943ee40cab7dbd) and Kotlin DSL
