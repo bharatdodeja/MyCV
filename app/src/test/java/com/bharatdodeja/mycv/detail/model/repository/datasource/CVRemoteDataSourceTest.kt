@@ -41,7 +41,7 @@ class CVRemoteDataSourceTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCV_apiServiceCallIsCaptured() {
+    fun `getCV apiServiceCallIsCaptured`() {
         // Given
         givenApiServiceReturnsSuccess(userId, cvDataModel)
 
@@ -53,7 +53,7 @@ class CVRemoteDataSourceTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCV_apiReturnsSuccess_resultIsSuccess() {
+    fun `getCV apiReturnsSuccess resultIsSuccess`() {
         // Given
         givenApiServiceReturnsSuccess(userId, cvDataModel)
 
@@ -65,7 +65,7 @@ class CVRemoteDataSourceTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCV_apiReturnsError_resultIsError() {
+    fun `getCV apiReturnsError resultIsError`() {
         // Given
         givenApiServiceReturnsError(userId, error)
 
@@ -77,7 +77,7 @@ class CVRemoteDataSourceTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCV_apiReturnsError_noValuesReturned() {
+    fun `getCV apiReturnsError noValuesReturned`() {
         // Given
         givenApiServiceReturnsError(userId, error)
 

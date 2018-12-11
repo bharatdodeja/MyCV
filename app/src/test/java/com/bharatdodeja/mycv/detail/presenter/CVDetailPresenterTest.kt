@@ -47,7 +47,7 @@ class CVDetailPresenterTest : CVTestDoubles() {
     }
 
     @Test
-    fun ifNetworkNotConnected_showNetworkError() {
+    fun `getCVDetail returnsNoNetworkError showNetworkError`() {
         //Given there is no network connection in device
         `when`(networkUtils.isConnected()).then { false }
 
@@ -59,7 +59,7 @@ class CVDetailPresenterTest : CVTestDoubles() {
     }
 
     @Test
-    fun ifNetworkConnected_doNotShowNetworkError() {
+    fun `getCVDetail thereIsActiveNetwork doNotShowNetworkError`() {
         //Given there is no network connection in device
         givenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
 
@@ -71,7 +71,7 @@ class CVDetailPresenterTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCVDetailCalled_repositoryCallbackIsCaptured() {
+    fun `getCVDetail repositoryCallbackIsCaptured`() {
 
         //Given there is active network connection in device
         //and repository returns successful data
@@ -85,7 +85,7 @@ class CVDetailPresenterTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCVDetailCalled_andSuccess_showCVDetailIntoView() {
+    fun `getCVDetail returnsSuccess showCVDetailIntoView`() {
 
         //Given there is active network connection in device
         //and repository returns successful data
@@ -102,7 +102,7 @@ class CVDetailPresenterTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCVDetailCalled_andError_showErrorIntoView() {
+    fun `getCVDetail returnsError showErrorIntoView`() {
         //Given there is active network connection in device
         //and repository gives error
         givenActiveNetworkAndRepositoryReturnsError(userId, error)
@@ -115,7 +115,7 @@ class CVDetailPresenterTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCVDetail_progressIndicatorsShownAndHidden() {
+    fun `getCVDetail returnsSuccess progressIndicatorShown andHidden`() {
         // Given there is active network connection in device
         // and repository returns successful data
         givenActiveNetworkAndRepositoryReturnsSuccess(userId, cvDataModel)
@@ -131,7 +131,7 @@ class CVDetailPresenterTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCVDetail_AndThereIsError_progressIndicatorsShownAndHidden() {
+    fun `getCVDetail returnsError progressIndicatorShown andHidden`() {
         //Given there is active network connection in device
         //and repository gives error
         givenActiveNetworkAndRepositoryReturnsError(userId, error)

@@ -40,7 +40,7 @@ class CVRepositoryTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCV_dataSourceCallIsCaptured() {
+    fun `getCV dataSourceCallIsCaptured`() {
         // Given remote data source returns success
         givenDataSourceReturnsSuccess(userId, cvDataModel)
 
@@ -52,7 +52,7 @@ class CVRepositoryTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCV_andThereIsError_repositoryReturnsError() {
+    fun `getCV andThereIsError repositoryReturnsError`() {
         // Given remote data source returns success
         givenDataSourceReturnsError(userId, error)
 
@@ -64,7 +64,7 @@ class CVRepositoryTest : CVTestDoubles() {
     }
 
     @Test
-    fun getCV_andThereIsSuccess_returnsExpectedResult() {
+    fun `getCV andThereIsSuccess returnsExpectedResult`() {
         // Given remote data source returns success
         givenDataSourceReturnsSuccess(userId, cvDataModel)
 
