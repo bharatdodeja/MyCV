@@ -24,11 +24,11 @@ android:
  - extra-google-m2repository
  - extra-android-m2repository # for design library
  - addon-google_apis-google-$ANDROID_API # google play services
- - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
- - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
+ - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API
+ - sys-img-armeabi-v7a-addon-google_apis-google-EMULATOR_API
  licenses:
  - android-sdk-preview-license-.+
  - android-sdk-license-.+
  - google-gdk-license-.+
  before_install:
-   - yes | sdkmanager "platforms;android-27"
+   - yes | sdkmanager "platforms;android-$ANDROID_API"
