@@ -31,6 +31,11 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 ### UI Tests (Espresso + Robot Pattern) 
 - [Espresso](https://developer.android.com/training/testing/espresso/) tests for testing UI using [Robot Pattern](https://gist.github.com/bharatdodeja/ac001b6a24028bde56943ee40cab7dbd) and Kotlin DSL
 
+## Screenshots
+![Basic Details](screenshots/1.png "Basic details")
+![Skills & Work](screenshots/2.png "Details of Skills and Work")
+![Work & Education](screenshots/3.png "Details of Work and Education")
+
 ### TODO v1.0
 - [X] MVP with repository as architectural pattern
 - [X] LifecycleObserver from [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/) for making Presenter lifecycle aware
