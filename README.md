@@ -58,8 +58,6 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 - [ ] ORM to support offline using [Room](https://developer.android.com/topic/libraries/architecture/room)
 - [ ] Stubbed data for UI tests using [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver)
 - [ ] Replace Dagger with [Koin](https://insert-koin.io/) as dependency injection framework
-- [ ] Replace [AndroidJUnitRunner](https://developer.android.com/training/testing/junit-runner) with [JUnit4 rules 
-with AndroidX Test](https://developer.android.com/training/testing/junit-rules)
 - [ ] Replace dependency injection framework with [Dagger 2](https://google.github.io/dagger/)
 - [ ] Replace Rx with Kotlin Coroutines
 - [ ] Install [Git hooks](https://www.atlassian.com/git/tutorials/git-hooks)
