@@ -1,5 +1,5 @@
 # MyCV 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://travis-ci.org/bharatdodeja/MyCV)
+[![CircleCI](https://circleci.com/gh/bharatdodeja/MyCV/tree/master.svg?style=shield)](https://circleci.com/gh/bharatdodeja/MyCV/tree/master)
 [![Code Coverage](https://img.shields.io/badge/codecov-100%25-brightgreen.svg)](https://codecov.io/gh/bharatdodeja/MyCV/)
 
 A native Android app written entirely in Kotlin to showcase a Curriculum Vitae :page_facing_up:
@@ -48,7 +48,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 - [X] Unit test presenters and repositories using [AndroidJUnitRunner](https://developer.android.com/training/testing/junit-runner)
 - [X] Mocking using [Mockito 2](https://github.com/mockito/mockito)
 - [X] Use [JSON Resume](https://jsonresume.org) for showing JSON-based resumes
-- [X] CI/CD using [Travis CI](https://travis-ci.com/)
+- [X] CI/CD using [Circle CI](https://circleci.com/)
 - [X] Add open source license
 - [X] Design architecture diagram for README
 - [X] Add screenshots for README
