@@ -51,6 +51,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 - [X] CI/CD using [Travis CI](https://travis-ci.com/)
 - [X] Add open source license
 - [X] Design architecture diagram for README
+- [X] Add screenshots for README
 
 ### TODO v2.0
 - [ ] ORM to support offline using [Room](https://developer.android.com/topic/libraries/architecture/room)
