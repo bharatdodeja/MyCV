@@ -52,6 +52,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 - [X] Add open source license
 - [X] Design architecture diagram for README
 - [X] Add screenshots for README
+- [X] Migrate to Android KTX
 
 ### TODO v2.0
 - [ ] ORM to support offline using [Room](https://developer.android.com/topic/libraries/architecture/room)
