@@ -11,6 +11,7 @@ import com.bharatdodeja.mycv.detail.CVDetailContract
 import com.bharatdodeja.mycv.detail.di.Injection
 import com.bharatdodeja.mycv.detail.model.data.CVDataModel
 import com.bharatdodeja.mycv.framework.util.action
+import com.bharatdodeja.mycv.framework.util.formatDate
 import com.bharatdodeja.mycv.framework.util.snackBar
 import kotlinx.android.synthetic.main.activity_cv_detail.*
 
@@ -128,7 +129,7 @@ class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
                 append(work.website)
                 if (work.startDate.isNullOrEmpty().not() && work.endDate.isNullOrEmpty().not()) {
                     append("\n")
-                    append("${work.startDate} to ${work.endDate}")
+                    append("${work.startDate.formatDate()} - ${work.endDate.formatDate()}")
                 }
                 append("\n\n")
                 append(work.summary)
@@ -161,7 +162,7 @@ class CVDetailActivity : AppCompatActivity(), CVDetailContract.View {
                 }
                 append("\n")
                 scale(.75f) {
-                    append("${education.startDate} to ${education.endDate}")
+                    append("${education.startDate.formatDate()} - ${education.endDate.formatDate()}")
                 }
                 append("\n")
                 color(getColor(R.color.black)) {
