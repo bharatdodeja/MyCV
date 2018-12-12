@@ -2,7 +2,7 @@ package com.bharatdodeja.mycv.detail.view
 
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.bharatdodeja.mycv.detail.CVUITestDoubles
 import org.junit.Rule
 import org.junit.Test
@@ -42,7 +42,7 @@ class CVDetailActivityTest : CVUITestDoubles() {
 
     @Test
     fun showNoNetworkError_showsSnackBarWithErrorMessageAndRetry() {
-        cvDetailScreen (activityTestRule.activity) {
+        cvDetailScreen(activityTestRule.activity) {
             // no user input required
         } showNoNetworkError {
             isNetworkErrorShownWithRetry()
@@ -52,7 +52,7 @@ class CVDetailActivityTest : CVUITestDoubles() {
 
     @Test
     fun showNoNetworkError_retry_showsLoadingIndicator() {
-        cvDetailScreen (activityTestRule.activity) {
+        cvDetailScreen(activityTestRule.activity) {
             //no user input required
         } showNoNetworkErrorAndRetry {
             isProgressShown()
