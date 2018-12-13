@@ -64,7 +64,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 
 
 
-### LICENSE
+## License
 
 ```
 MIT License
