@@ -35,7 +35,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 ![Skills & Work](screenshots/2.png "Details of Skills and Work")
 ![Work & Education](screenshots/3.png "Details of Work and Education")
 
-## TODO v1.0
+## Todo v1.0
 - [X] MVP with repository as architectural pattern
 - [X] LifecycleObserver from [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/) for making Presenter lifecycle aware
 - [X] Reactive programming using Rx
@@ -53,7 +53,7 @@ Reactive Extensions makes asynchronous programming easy with observable streams 
 - [X] Add screenshots for README
 - [X] Migrate to Android KTX
 
-## TODO v2.0
+## Todo v2.0
 - [ ] ORM to support offline using [Room](https://developer.android.com/topic/libraries/architecture/room)
 - [ ] Stubbed data for UI tests using [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver)
 - [ ] Replace Dagger with [Koin](https://insert-koin.io/) as dependency injection framework
