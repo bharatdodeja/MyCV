@@ -1,6 +1,5 @@
 # MyCV 
 [![CircleCI](https://circleci.com/gh/bharatdodeja/MyCV/tree/master.svg?style=shield)](https://circleci.com/gh/bharatdodeja/MyCV/tree/master)
-[![Code Coverage](https://img.shields.io/badge/codecov-100%25-brightgreen.svg)](https://codecov.io/gh/bharatdodeja/MyCV/)
 
 A native Android app written entirely in Kotlin to showcase a Curriculum Vitae :page_facing_up:
 
